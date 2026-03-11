@@ -1,0 +1,217 @@
+:host {
+
+  
+  #main-site-header {
+    background: #e53935 !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+
+
+  // Items del menú con mejor espaciado
+  ::ng-deep #navbar-content {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 72px;
+    padding: 0;
+  }
+
+  // Links principales con estilo moderno
+  ::ng-deep a.ds-menu-item,
+  ::ng-deep .navbar-nav > .nav-item > a,
+  ::ng-deep .ds-menu-item-wrapper a,
+  ::ng-deep #main-site-navigation a {
+    color: #ffffff !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1.15rem;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    height: 72px;
+    position: relative;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    background: transparent;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: #ffffff;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+      border-radius: 3px 3px 0 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.1);
+
+      &::after {
+        width: 80%;
+      }
+    }
+
+    &.active,
+    &:active {
+      &::after {
+        width: 100%;
+        background: #ffffff;
+      }
+    }
+  }
+
+  // Dropdown menus con diseño elegante
+  ::ng-deep .dropdown-menu {
+    background: #e53935 !important;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 0;
+    min-width: 220px;
+    margin-top: 0.5rem;
+    animation: dropdownSlide 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid #e53935;
+    }
+
+    .dropdown-item,
+    .ds-menu-item,
+    a {
+      color: #ffffff !important;
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+      position: relative;
+      font-size: 0.9rem;
+      height: auto !important;
+      text-transform: none !important;
+
+      &::before,
+      &::after {
+        display: none !important;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15) !important;
+        color: #ffffff !important;
+        border-left-color: #ffffff;
+        padding-left: 1.75rem;
+        transform: none !important;
+      }
+
+      &.active {
+        background: rgba(255, 255, 255, 0.2) !important;
+        color: #ffffff !important;
+        border-left-color: #ffffff;
+        font-weight: 600;
+      }
+    }
+
+    .dropdown-divider {
+      margin: 0.5rem 0;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  // Forzar texto blanco en todos los enlaces del navbar
+  ::ng-deep #desktop-navbar,
+  ::ng-deep nav#desktop-navbar {
+    a, .ds-menu-item, .ds-menu-toggler-wrapper {
+      color: #ffffff !important;
+    }
+  }
+
+  // Separadores entre items removidos para mejor espaciado
+
+  // Mobile menu improvements
+  ::ng-deep #mobile-navbar {
+    background: #e53935;
+
+    .mobile-menu-item {
+      padding: 15px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+// Animaciones modernas
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Efectos de hover adicionales
+::ng-deep .navbar-brand {
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Mejoras para badges y notificaciones
+::ng-deep .badge {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+// Mejoras responsivas
+@media (max-width: 991px) {
+  ::ng-deep #navbar-content {
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem;
+  }
+
+  ::ng-deep a.ds-menu-item,
+  ::ng-deep .navbar-nav > .nav-item > a {
+    width: 100%;
+    justify-content: flex-start;
+    height: 50px;
+    padding: 0 1rem;
+  }
+}
+
+// Mejoras de accesibilidad
+::ng-deep a.ds-menu-item:focus,
+::ng-deep .navbar-nav > .nav-item > a:focus {
+  outline: 2px solid #ffd700;
+  outline-offset: -2px;
+}

@@ -1,0 +1,53 @@
+:host {
+  #main-site-header {
+    min-height: var(--ds-header-height);
+
+    @include media-breakpoint-up(md) {
+      height: var(--ds-header-height);
+    }
+
+    background: red;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    &-container {
+      min-height: var(--ds-header-height);
+    }
+  }
+
+
+  img#header-logo {
+    height: 60px;
+    
+    @include media-breakpoint-up(md) {
+      height: 70px;
+    }
+  }
+  
+
+  button#navbar-toggler {
+    color: #ffffff;
+
+    &:hover, &:focus {
+      color: #ffd700;
+    }
+  }
+
+  // Asegurar que todos los íconos y textos sean blancos
+  ::ng-deep #header-right {
+    a, button, .btn {
+      color: #ffffff !important;
+      
+      &:hover {
+        color: #ffd700 !important;
+      }
+    }
+  }
+
+  // Asegurar texto blanco en el navbar
+  ::ng-deep #header-left,
+  ::ng-deep #desktop-navbar {
+    a, .ds-menu-item, .ds-menu-toggler-wrapper {
+      color: #ffffff !important;
+    }
+  }
+}

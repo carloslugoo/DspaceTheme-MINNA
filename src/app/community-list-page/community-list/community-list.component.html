@@ -1,0 +1,183 @@
+@if ((dataSource.loading$ | async) && !loadingNode) {
+  <ds-loading class="ds-themed-loading"></ds-loading>
+}
+
+<cdk-tree
+  [dataSource]="dataSource"
+  [treeControl]="treeControl"
+  [trackBy]="trackBy"
+  class="community-tree"
+>
+  <!-- SHOW MORE NODE -->
+  <cdk-tree-node
+    *cdkTreeNodeDef="let node; when: isShowMore"
+    cdkTreeNodePadding
+    class="show-more-node"
+  >
+    <div class="show-more-wrapper">
+      <span aria-hidden="true" class="toggle-placeholder">
+        <span class="fa fa-chevron-right"></span>
+      </span>
+
+      <div class="show-more-content">
+        @if ((dataSource.loading$ | async) !== true) {
+          <button
+            (click)="getNextPage(node)"
+            class="btn btn-outline-primary btn-sm"
+            role="button"
+            tabindex="0"
+          >
+            <i class="fas fa-angle-down"></i>
+            {{ 'communityList.showMore' | translate }}
+          </button>
+        }
+
+        @if (node === loadingNode && dataSource.loading$ | async) {
+          <ds-loading class="ds-themed-loading"></ds-loading>
+        }
+      </div>
+    </div>
+  </cdk-tree-node>
+
+  <!-- EXPANDABLE NODE -->
+  <cdk-tree-node
+    *cdkTreeNodeDef="let node; when: hasChild"
+    cdkTreeNodePadding
+    class="community-tree-node expandable-node"
+    [class.top-level]="isTopLevel(node)"
+  >
+    <div class="community-node-row">
+      @if (hasChild(null, node) | async) {
+        <button
+          type="button"
+          class="expand-toggle"
+          cdkTreeNodeToggle
+          [attr.aria-label]="
+            (node.isExpanded ? 'communityList.collapse' : 'communityList.expand')
+              | translate:{ name: getNodeName(node) }
+          "
+          (click)="toggleExpanded(node)"
+          (keyup.enter)="toggleExpanded(node)"
+          (keyup.space)="toggleExpanded(node)"
+          data-test="expand-button"
+          role="button"
+          tabindex="0"
+        >
+          <span
+            class="{{ node.isExpanded ? 'fa fa-chevron-down' : 'fa fa-chevron-right' }}"
+            aria-hidden="true"
+          ></span>
+          <span class="sr-only">
+            {{
+              (node.isExpanded ? 'communityList.collapse' : 'communityList.expand')
+                | translate:{ name: getNodeName(node) }
+            }}
+          </span>
+        </button>
+      }
+
+      @if ((hasChild(null, node) | async) !== true) {
+        <span aria-hidden="true" class="toggle-placeholder">
+          <span class="fa fa-chevron-right"></span>
+        </span>
+      }
+
+      <a
+        [routerLink]="node.route"
+        class="community-card"
+        [class.community-card--child]="!isTopLevel(node)"
+        role="link"
+        tabindex="0"
+      >
+        <div class="community-card__logo">
+          @if (getLogoUrl(node) | async; as logo) {
+  <img
+    [src]="logo"
+    [alt]="getNodeName(node)"
+  />
+}
+        </div>
+
+        <div class="community-card__content">
+          <div class="community-card__top">
+            <h3 class="community-card__title">
+              {{ getNodeName(node) }}
+            </h3>
+
+            @if (node.payload.archivedItemsCount >= 0) {
+              <span class="community-card__badge">
+                {{ node.payload.archivedItemsCount }}
+              </span>
+            }
+          </div>
+
+          @if (node.payload.shortDescription) {
+            <p class="community-card__description">
+              {{ node.payload.shortDescription }}
+            </p>
+          }
+        </div>
+      </a>
+    </div>
+
+    @if (node === loadingNode && dataSource.loading$ | async) {
+      <div class="community-loading-row" cdkTreeNodePadding>
+        <span aria-hidden="true" class="toggle-placeholder">
+          <span class="fa fa-chevron-right"></span>
+        </span>
+        <ds-loading class="ds-themed-loading"></ds-loading>
+      </div>
+    }
+  </cdk-tree-node>
+
+  <!-- CHILDLESS NODE -->
+  <cdk-tree-node
+    *cdkTreeNodeDef="let node; when: !(hasChild && isShowMore)"
+    cdkTreeNodePadding
+    class="community-tree-node childless-node"
+    [class.top-level]="isTopLevel(node)"
+  >
+    <div class="community-node-row">
+      <span aria-hidden="true" class="toggle-placeholder">
+        <span class="fa fa-chevron-right"></span>
+      </span>
+
+      <a
+        [routerLink]="node.route"
+        class="community-card"
+        [class.community-card--child]="!isTopLevel(node)"
+        role="link"
+        tabindex="0"
+      >
+        <div class="community-card__logo">
+          @if (getLogoUrl(node) | async; as logo) {
+            <img
+              [src]="logo"
+              [alt]="getNodeName(node)"
+            />
+          }
+        </div>
+
+        <div class="community-card__content">
+          <div class="community-card__top">
+            <h3 class="community-card__title">
+              {{ getNodeName(node) }}
+            </h3>
+
+            @if (node.payload.archivedItemsCount >= 0) {
+              <span class="community-card__badge">
+                {{ node.payload.archivedItemsCount }}
+              </span>
+            }
+          </div>
+
+          @if (node.payload.shortDescription) {
+            <p class="community-card__description">
+              {{ node.payload.shortDescription }}
+            </p>
+          }
+        </div>
+      </a>
+    </div>
+  </cdk-tree-node>
+</cdk-tree>
