@@ -1,0 +1,91 @@
+:host {
+  display: block;
+}
+
+.beneficios-repositorio-page {
+  max-width: 980px;
+
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #e53935;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1f2d3d;
+  }
+
+  &__content {
+    margin-bottom: 2.5rem;
+
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #4f5d6b;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.benefit-group {
+
+  &__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1f2d3d;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    i {
+      color: #e53935;
+    }
+  }
+}
+
+.benefit-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  background: #f8fafb;
+  font-size: 0.98rem;
+  color: #4f5d6b;
+
+  i {
+    color: #e53935;
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefit-group__title {
+    font-size: 1.15rem;
+  }
+}

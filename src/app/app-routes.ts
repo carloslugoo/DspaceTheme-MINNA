@@ -60,6 +60,30 @@ export const APP_ROUTES: Route[] = [
         canActivate: [reloadGuard],
       },
       {
+      path: 'institucional/sobre-programa',
+        loadComponent: () =>
+          import('./landing-pages/sobre-programa/sobre-programa.component')
+            .then((m) => m.SobreProgramaComponent),
+      },
+      {
+      path: 'institucional/componentes-del-programa',
+        loadComponent: () =>
+          import('./landing-pages/componentes-del-programa/componentes-del-programa.component')
+            .then((m) => m.ComponentesDelProgramaComponent),
+      },
+      {
+        path: 'institucional/beneficios-del-repositorio',
+        loadComponent: () =>
+          import('./landing-pages/beneficios/beneficios.component')
+            .then((m) => m.BeneficiosDelRepositorioComponent),
+      },
+      {
+        path: 'autoridades',
+        loadComponent: () =>
+          import('./landing-pages/autoridades/autoridades.component')
+            .then((m) => m.AutoridadesComponent),
+      },
+      {
         path: 'home',
         loadChildren: () => import('./home-page/home-page-routes')
           .then((m) => m.ROUTES),

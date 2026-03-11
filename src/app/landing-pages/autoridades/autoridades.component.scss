@@ -1,0 +1,38 @@
+:host {
+  display: block;
+}
+
+.autoridades-page {
+  max-width: 980px;
+
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #e53935;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1f2d3d;
+  }
+
+  &__content {
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #4f5d6b;
+    }
+  }
+}

@@ -1,9 +1,76 @@
 @if ((isMobile$ | async) && (isAuthenticated$ | async)) {
   <ds-user-menu [inExpandableNavbar]="true"></ds-user-menu>
 }
-<div class="navbar-nav flex-shrink-1 h-100 align-items-md-stretch gapx-3" role="menubar" id="main-site-navigation" [ngClass]="(isMobile$ | async) ? 'navbar-nav-mobile' : 'navbar-nav-desktop'">
+
+<div
+  class="navbar-nav flex-shrink-1 h-100 align-items-md-stretch gapx-3"
+  role="menubar"
+  id="main-site-navigation"
+  [ngClass]="(isMobile$ | async) ? 'navbar-nav-mobile' : 'navbar-nav-desktop'"
+>
+  <div
+    class="custom-nav-dropdown"
+    role="none"
+    [class.open]="isInstitutionalOpen"
+  >
+    <a
+      class="ds-menu-item custom-nav-dropdown__toggle"
+      href="#"
+      role="menuitem"
+      tabindex="0"
+      (click)="toggleInstitutionalDropdown($event)"
+    >
+      <span>Institucional</span>
+      <span
+        class="fas fa-chevron-down custom-nav-dropdown__icon"
+        aria-hidden="true"
+      ></span>
+    </a>
+
+    <div
+      class="dropdown-menu custom-nav-dropdown__menu"
+      [class.show]="isInstitutionalOpen"
+    >
+      <a
+        routerLink="/institucional/sobre-programa"
+        class="dropdown-item custom-nav-dropdown__item"
+        role="menuitem"
+        tabindex="0"
+        (click)="closeInstitutionalDropdown()"
+      >
+        Sobre el programa
+      </a>
+
+      <a
+        routerLink="/institucional/componentes-del-programa"
+        class="dropdown-item custom-nav-dropdown__item"
+        role="menuitem"
+        tabindex="0"
+        (click)="closeInstitutionalDropdown()"
+      >
+        Componentes del programa
+      </a>
+      <a
+      routerLink="/institucional/beneficios-del-repositorio"
+      class="dropdown-item custom-nav-dropdown__item"
+      (click)="closeInstitutionalDropdown()"
+      >
+        Beneficios del repositorio
+      </a>
+    </div>
+  </div>
+
+  <a
+    routerLink="/autoridades"
+    class="ds-menu-item"
+    role="menuitem"
+    tabindex="0"
+  >
+    Autoridades
+  </a>
   @for (section of (sections | async); track section) {
     <ng-container
-    *ngComponentOutlet="(sectionMap$ | async).get(section.id)?.component; injector: (sectionMap$ | async).get(section.id)?.injector;"></ng-container>
+      *ngComponentOutlet="(sectionMap$ | async).get(section.id)?.component; injector: (sectionMap$ | async).get(section.id)?.injector;">
+    </ng-container>
   }
 </div>

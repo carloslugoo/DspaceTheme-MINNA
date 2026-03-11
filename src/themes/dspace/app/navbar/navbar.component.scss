@@ -207,11 +207,23 @@
     height: 50px;
     padding: 0 1rem;
   }
-}
+  ::ng-deep .custom-nav-dropdown {
+    position: relative;
+  }
 
-// Mejoras de accesibilidad
-::ng-deep a.ds-menu-item:focus,
-::ng-deep .navbar-nav > .nav-item > a:focus {
-  outline: 2px solid #ffd700;
-  outline-offset: -2px;
+  ::ng-deep .custom-nav-dropdown__menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2000;
+  }
+
+  ::ng-deep .custom-nav-dropdown__menu.show {
+    display: block;
+  }
+
+  ::ng-deep .custom-nav-dropdown__toggle {
+    cursor: pointer;
+  }
 }
