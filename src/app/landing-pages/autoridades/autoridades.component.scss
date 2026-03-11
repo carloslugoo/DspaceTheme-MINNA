@@ -40,6 +40,10 @@
   }
 }
 
+/* =========================
+   CARDS AUTORIDADES
+========================= */
+
 .minister-card {
   display: flex;
   flex-direction: column;
@@ -87,50 +91,9 @@
   }
 }
 
+/* GRID VICEMINISTROS */
+
 .vice-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.vice-card {
-  background: #ffffff;
-  border: 1px solid #e7ecef;
-  border-radius: 16px;
-  padding: 1.4rem;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-  transition: all 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-  }
-
-  h3 {
-    margin: 0 0 0.75rem;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #22313f;
-    line-height: 1.5;
-  }
-
-  p {
-    margin: 0;
-    color: #5f6d77;
-    font-size: 0.97rem;
-    line-height: 1.7;
-  }
-}
-
-@media (max-width: 991px) {
-  .vice-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .minister-card {
-    max-width: 100%;
-  }
-  .vice-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
@@ -142,10 +105,99 @@
   margin: 0;
 }
 
+/* =========================
+   COMITÉ DE INVESTIGACIÓN
+========================= */
+
+.research-committee {
+  margin-top: 4rem;
+}
+
+.research-committee__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1f2d3d;
+  margin-bottom: 2rem;
+}
+
+.committee-section {
+  margin-bottom: 2.5rem;
+}
+
+.committee-section__subtitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #22313f;
+}
+
+.committee-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem 2rem;
+}
+
+.committee-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eef2f4;
+
+  strong {
+    font-weight: 600;
+    color: #22313f;
+  }
+
+  span {
+    font-size: 0.95rem;
+    color: #5f6d77;
+  }
+}
+
+/* LISTA UNIVERSIDADES */
+
+.committee-list--universities {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.committee-list--universities .committee-item {
+  border-bottom: none;
+  padding: 0.4rem 0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 991px) {
+
   .vice-grid {
     grid-template-columns: 1fr;
   }
+
+  .minister-card {
+    max-width: 100%;
+  }
+
+  .committee-list--universities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 }
+
+@media (max-width: 768px) {
+
+  .committee-list {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .committee-list,
+  .committee-list--universities {
+    grid-template-columns: 1fr;
+  }
 
 }
