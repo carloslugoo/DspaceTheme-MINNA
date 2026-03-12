@@ -379,6 +379,57 @@
       }
     }
   }
+  // Stats Section
+.stats-section {
+  margin-bottom: 3rem;
+  text-align: center;
+
+  .stats-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+    i {
+      color: #ffffff;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .stat-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem 1rem;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .stat-number {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      opacity: 0.95;
+      line-height: 1.4;
+    }
+  }
+}
 }
 
 
