@@ -226,4 +226,9 @@
   ::ng-deep .custom-nav-dropdown__toggle {
     cursor: pointer;
   }
+  ::ng-deep #main-site-navigation > a.nav-item-compact,
+  ::ng-deep #main-site-navigation > .custom-nav-dropdown > a.nav-item-compact {
+    padding: 0 0.8rem !important;
+    font-size: 1.05rem !important;
+  }
 }

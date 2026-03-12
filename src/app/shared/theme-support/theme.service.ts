@@ -293,7 +293,7 @@ export class ThemeService {
             'tagName': 'link',
             'attributes': {
               'rel': 'icon',
-              'href': 'assets/images/favicon.ico',
+              'href': 'assets/images/favicon-renapy.ico',
               'sizes': 'any',
             },
           }),

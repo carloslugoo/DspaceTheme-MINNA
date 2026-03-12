@@ -5502,7 +5502,7 @@
   "metadata-export-search.submit.error": "Ha fallado el comienzo de la exportación",
 
   // "mydspace.breadcrumbs": "MyDSpace",
-  "mydspace.breadcrumbs": "Mi DSpace",
+  "mydspace.breadcrumbs": "Mi RENAPY",
 
   // "mydspace.description": "",
   "mydspace.description": "",
@@ -5583,7 +5583,7 @@
   "mydspace.results.no-uri": "Sin URI",
 
   // "mydspace.search-form.placeholder": "Search in MyDSpace...",
-  "mydspace.search-form.placeholder": "Buscar en Mi DSpace...",
+  "mydspace.search-form.placeholder": "Buscar en RENAPY...",
 
   // "mydspace.show.workflow": "Workflow tasks",
   "mydspace.show.workflow": "Tareas del flujo de trabajo",
@@ -5614,7 +5614,7 @@
   "mydspace.status.mydspaceWorkspace": "Espacio de trabajo",
 
   // "mydspace.title": "MyDSpace",
-  "mydspace.title": "Mi DSpace",
+  "mydspace.title": "Mi RENAPY",
 
   // "mydspace.upload.upload-failed": "Error creating new workspace. Please verify the content uploaded before retry.",
   "mydspace.upload.upload-failed": "Error al crear un nuevo espacio de trabajo. Verifique el contenido cargado antes de volver a intentarlo.",
@@ -5644,7 +5644,7 @@
   "notification.suggestion.please": "Por favor",
 
   // "nav.browse.header": "All of DSpace",
-  "nav.browse.header": "Todo DSpace",
+  "nav.browse.header": "Articulos RENAPY",
 
   // "nav.community-browse.header": "By Community",
   "nav.community-browse.header": "Por comunidad",
@@ -5668,7 +5668,7 @@
   "nav.main.description": "Barra de navegación principal",
 
   // "nav.mydspace": "MyDSpace",
-  "nav.mydspace": "Mi DSpace",
+  "nav.mydspace": "Mi RENAPY",
 
   // "nav.profile": "Profile",
   "nav.profile": "Perfil",
@@ -6767,10 +6767,10 @@
   "repository.image.logo": "Logotipo del repositorio",
 
   // "repository.title": "DSpace Repository",
-  "repository.title": "Repositorio DSpace",
+  "repository.title": "Repositorio RENAPY",
 
   // "repository.title.prefix": "DSpace Repository :: ",
-  "repository.title.prefix": "Repositorio DSpace :: ",
+  "repository.title.prefix": "Repositorio RENAPY :: ",
 
   // "resource-policies.add.button": "Add",
   "resource-policies.add.button": "Agregar",
@@ -7698,7 +7698,7 @@
   "submission.import-external.page.hint": "Introduzca una consulta arriba para buscar í de la web para importarlos a DSpace.",
 
   // "submission.import-external.back-to-my-dspace": "Back to MyDSpace",
-  "submission.import-external.back-to-my-dspace": "Volver a Mi DSpace",
+  "submission.import-external.back-to-my-dspace": "Volver a RENAPY",
 
   // "submission.import-external.search.placeholder": "Search the external source",
   "submission.import-external.search.placeholder": "Buscar fuente externa",

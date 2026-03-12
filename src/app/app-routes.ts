@@ -84,6 +84,12 @@ export const APP_ROUTES: Route[] = [
             .then((m) => m.AutoridadesComponent),
       },
       {
+        path: 'institucional/contacto',
+        loadComponent: () =>
+          import('./landing-pages/contacto/contacto.component')
+            .then((m) => m.ContactoComponent),
+      },
+      {
         path: 'home',
         loadChildren: () => import('./home-page/home-page-routes')
           .then((m) => m.ROUTES),

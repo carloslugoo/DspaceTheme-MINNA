@@ -2,29 +2,32 @@
   <ds-user-menu [inExpandableNavbar]="true"></ds-user-menu>
 }
 
-<div
-  class="navbar-nav flex-shrink-1 h-100 align-items-md-stretch gapx-3"
-  role="menubar"
-  id="main-site-navigation"
-  [ngClass]="(isMobile$ | async) ? 'navbar-nav-mobile' : 'navbar-nav-desktop'"
->
+<div class="navbar-nav flex-shrink-1 h-100 align-items-md-stretch gapx-3"
+     role="menubar"
+     id="main-site-navigation"
+     [ngClass]="(isMobile$ | async) ? 'navbar-nav-mobile' : 'navbar-nav-desktop'">
+
+  @for (section of (sections | async); track section) {
+    <ng-container
+      *ngComponentOutlet="(sectionMap$ | async).get(section.id)?.component;
+      injector: (sectionMap$ | async).get(section.id)?.injector;">
+    </ng-container>
+  }
+
   <div
     class="custom-nav-dropdown"
     role="none"
     [class.open]="isInstitutionalOpen"
   >
     <a
-      class="ds-menu-item custom-nav-dropdown__toggle"
+      class="ds-menu-item custom-nav-dropdown__toggle nav-item-compact"
       href="#"
       role="menuitem"
       tabindex="0"
       (click)="toggleInstitutionalDropdown($event)"
     >
       <span>Institucional</span>
-      <span
-        class="fas fa-chevron-down custom-nav-dropdown__icon"
-        aria-hidden="true"
-      ></span>
+      <span class="fas fa-chevron-down custom-nav-dropdown__icon"></span>
     </a>
 
     <div
@@ -33,9 +36,7 @@
     >
       <a
         routerLink="/institucional/sobre-programa"
-        class="dropdown-item custom-nav-dropdown__item"
-        role="menuitem"
-        tabindex="0"
+        class="dropdown-item"
         (click)="closeInstitutionalDropdown()"
       >
         Sobre el programa
@@ -43,17 +44,16 @@
 
       <a
         routerLink="/institucional/componentes-del-programa"
-        class="dropdown-item custom-nav-dropdown__item"
-        role="menuitem"
-        tabindex="0"
+        class="dropdown-item"
         (click)="closeInstitutionalDropdown()"
       >
         Componentes del programa
       </a>
+
       <a
-      routerLink="/institucional/beneficios-del-repositorio"
-      class="dropdown-item custom-nav-dropdown__item"
-      (click)="closeInstitutionalDropdown()"
+        routerLink="/institucional/beneficios-del-repositorio"
+        class="dropdown-item"
+        (click)="closeInstitutionalDropdown()"
       >
         Beneficios del repositorio
       </a>
@@ -62,15 +62,17 @@
 
   <a
     routerLink="/autoridades"
-    class="ds-menu-item"
+    class="ds-menu-item nav-item-compact"
     role="menuitem"
-    tabindex="0"
   >
     Autoridades
   </a>
-  @for (section of (sections | async); track section) {
-    <ng-container
-      *ngComponentOutlet="(sectionMap$ | async).get(section.id)?.component; injector: (sectionMap$ | async).get(section.id)?.injector;">
-    </ng-container>
-  }
+  <a
+  routerLink="/institucional/contacto"
+  class="ds-menu-item nav-item-compact"
+  role="menuitem"
+>
+  Contacto
+</a>
+
 </div>

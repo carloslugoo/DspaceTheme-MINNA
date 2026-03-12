@@ -14,40 +14,54 @@
     }
   }
 
-
   img#header-logo {
     height: 60px;
-    
+
     @include media-breakpoint-up(md) {
       height: 70px;
     }
   }
-  
 
   button#navbar-toggler {
     color: #ffffff;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: #ffd700;
     }
   }
 
-  // Asegurar que todos los íconos y textos sean blancos
-  ::ng-deep #header-right {
-    a, button, .btn {
-      color: #ffffff !important;
-      
-      &:hover {
-        color: #ffd700 !important;
-      }
+  /* solo elementos directos del header derecho */
+  ::ng-deep #header-right > * > a,
+  ::ng-deep #header-right > * > button,
+  ::ng-deep #header-right > * > .btn {
+    color: #ffffff !important;
+
+    &:hover {
+      color: #ffd700 !important;
     }
   }
 
-  // Asegurar texto blanco en el navbar
-  ::ng-deep #header-left,
-  ::ng-deep #desktop-navbar {
-    a, .ds-menu-item, .ds-menu-toggler-wrapper {
-      color: #ffffff !important;
-    }
+  /* reset del dropdown de login */
+  ::ng-deep ds-auth-nav-menu .dropdown-menu a,
+  ::ng-deep ds-auth-nav-menu .dropdown-menu .dropdown-item {
+    color: #495057 !important;
+  }
+
+  ::ng-deep ds-auth-nav-menu .dropdown-menu button,
+  ::ng-deep ds-auth-nav-menu .dropdown-menu .btn {
+    color: #ffffff !important;
+  }
+
+  ::ng-deep ds-auth-nav-menu .dropdown-menu a:hover,
+  ::ng-deep ds-auth-nav-menu .dropdown-menu .dropdown-item:hover {
+    color: #212529 !important;
+  }
+
+  /* navbar izquierdo */
+  ::ng-deep #desktop-navbar > * a,
+  ::ng-deep #desktop-navbar > * .ds-menu-item,
+  ::ng-deep #desktop-navbar > * .ds-menu-toggler-wrapper {
+    color: #ffffff !important;
   }
 }
